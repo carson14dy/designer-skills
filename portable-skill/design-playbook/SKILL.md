@@ -10,9 +10,9 @@ You are working with the judgment of a full design practice, written so an agent
 ## How to work
 
 1. **Route first.** Place the request on the grain **understand → frame → explore → make → validate → ship**. Name the stage in one line and let the user correct you. If two stages fit, start with the earlier one: starting upstream is cheap, discovering a skipped stage after the build is not. If the request holds two jobs (build it and prove it worked), do the first and name the second as what follows.
-2. **Read the skills for the stage before producing anything.** The table below maps stages to `references/<plugin>.md`, an index of that plugin's skills with each one's trigger and boundary. Pick the skills that match the situation and read their full source in `references/source/<plugin>/<skill>.md`; that is where the rules, numbers, tables, and "do not" lines live. For a screen that means at minimum `layout-grid`, `visual-hierarchy`, `typography-scale`, `color-system`, `spacing-system`, `responsive-design`, `dark-mode-design`; for a flow add `state-machine`, `feedback-patterns`, `error-handling-ux`, `loading-states`; for a form, `form-design`, `hicks-law`, `millers-law`, `fitts-law`.
+2. **Open the source skills before producing anything.** This file carries the numbers; the judgment lives in `references/source/`: the tables, the decision heuristics, and the "do not" lines that separate a competent answer from an expert one. Runs that skipped this step produced flatter work: no per-dimension ratings, type sizes left vague, conventions missed. The harness tells you this skill's base directory when it loads; every path below is relative to it. Read the whole reading list for the task type (3 to 7 short files, about 2 minutes), then the plugin index `references/<plugin>.md` if the task touches skills not listed.
 3. **Run the workflow.** `references/workflows.md` holds all 34 pipelines. Follow the steps in order, name the skill driving each step in your output, and produce the stated artifact.
-4. **Critique your own output before handing it over.** Run the seven visual-critique dimensions (hierarchy, brand, composition, typography, colour, affordance, information density). For each: Observation (neutral), Problem (why it matters), Fix (specific). Rate pass / minor issue / major issue, then rank everything P1 critical, P2 important, P3 polish.
+4. **Critique your own output before handing it over.** Run the seven visual-critique dimensions (hierarchy, brand, composition, typography, colour, affordance, information density). Give each dimension a rating of pass, minor issue, or major issue, and for each finding write Observation (neutral), Problem (why it matters), Fix (specific). Then present every fix under P1 critical, P2 important, P3 polish, in the order it should be done, so the list is itself the plan.
 5. **Write the rationale** during the decision, not after: decision, context, options considered, evidence, reasoning, trade-offs, validation plan.
 
 | Stage | What it covers | Read |
@@ -27,6 +27,26 @@ You are working with the judgment of a full design practice, written so an agent
 | Validate (by eye) | The seven screen critiques | `references/visual-critique.md` |
 | Ship | Handoff spec, QA checklist, review gates, critique facilitation, debt audit, impact reporting | `references/design-ops.md` |
 | Advocate | Rationale, negotiation, presentations, case studies, UX writing, system adoption, token audit | `references/designer-toolkit.md` |
+
+## Reading list by task type
+
+Read every file in the matching row first. Paths are under `references/source/`. If the task spans two rows, read both.
+
+| Task | Read first |
+| --- | --- |
+| A screen, page, or layout | `ui-design/layout-grid.md`, `ui-design/visual-hierarchy.md`, `ui-design/typography-scale.md`, `ui-design/spacing-system.md`, `ui-design/color-system.md`, `ui-design/responsive-design.md`, `ui-design/dark-mode-design.md` |
+| A form, signup, checkout, or settings page | `interaction-design/form-design.md`, `interaction-design/error-handling-ux.md`, `interaction-design/feedback-patterns.md`, `interaction-design/hicks-law.md`, `interaction-design/millers-law.md`, `interaction-design/fitts-law.md` |
+| First-run or onboarding | `interaction-design/onboarding-design.md`, `interaction-design/peak-end-rule.md`, `interaction-design/zeigarnik-effect.md`, `interaction-design/jakobs-law.md`, `interaction-design/loading-states.md`, plus the form row if there is a signup |
+| A flow, component, or anything with states | `interaction-design/state-machine.md`, `interaction-design/micro-interaction-spec.md`, `interaction-design/loading-states.md`, `interaction-design/feedback-patterns.md`, `interaction-design/error-handling-ux.md`, `interaction-design/animation-principles.md` |
+| Navigation or search | `interaction-design/navigation-patterns.md`, `interaction-design/search-ux.md`, `interaction-design/serial-position-effect.md`, `ux-strategy/information-architecture.md`, `ui-design/platform-conventions.md` for native apps |
+| Colour, type, tokens, or a design system | `ui-design/color-system.md`, `ui-design/dark-mode-design.md`, `ui-design/typography-scale.md`, `ui-design/readable-measure.md`, `design-systems/design-token.md`, `design-systems/theming-system.md`, `ui-design/data-visualization.md` if charts |
+| A critique or review of an existing screen | all seven `visual-critique/critique-*.md`, then `ui-design/visual-hierarchy.md` and `interaction-design/hicks-law.md` for the fixes |
+| Research: personas, interviews, surveys, data | `design-research/user-persona.md`, `design-research/interview-script.md`, `design-research/survey-design.md`, `design-research/behavioural-analytics.md`, `design-research/qual-quant-triangulation.md`, `design-research/affinity-diagram.md` |
+| Strategy: brief, principles, competitors, metrics | `ux-strategy/design-brief.md`, `ux-strategy/design-principles.md`, `ux-strategy/competitive-analysis.md`, `ux-strategy/metrics-definition.md`, `ux-strategy/opportunity-framework.md` |
+| Choosing between directions | `prototyping-testing/parallel-concepts.md`, `prototyping-testing/concept-selection.md`, `prototyping-testing/prototype-strategy.md`, `prototyping-testing/wireframe-spec.md` |
+| Handoff, spec, or QA | `design-ops/handoff-spec.md`, `design-ops/design-qa-checklist.md`, `designer-toolkit/design-rationale.md`, `designer-toolkit/ux-writing.md` |
+
+Every build also ends with `designer-toolkit/design-rationale.md` for the rationale and the seven critique files for the self-critique.
 
 ## Routing map
 
