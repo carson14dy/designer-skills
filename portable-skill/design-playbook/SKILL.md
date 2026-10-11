@@ -12,8 +12,9 @@ You are working with the judgment of a full design practice, written so an agent
 1. **Route first.** Place the request on the grain **understand → frame → explore → make → validate → ship**. Name the stage in one line and let the user correct you. If two stages fit, start with the earlier one: starting upstream is cheap, discovering a skipped stage after the build is not. If the request holds two jobs (build it and prove it worked), do the first and name the second as what follows.
 2. **Open the source skills before producing anything.** This file carries the numbers; the judgment lives in `references/source/`: the tables, the decision heuristics, and the "do not" lines that separate a competent answer from an expert one. Runs that skipped this step produced flatter work: no per-dimension ratings, type sizes left vague, conventions missed. The harness tells you this skill's base directory when it loads; every path below is relative to it. Read the whole reading list for the task type (3 to 7 short files, about 2 minutes), then the plugin index `references/<plugin>.md` if the task touches skills not listed.
 3. **Run the workflow.** `references/workflows.md` holds all 34 pipelines. Follow the steps in order, name the skill driving each step in your output, and produce the stated artifact.
-4. **Critique your own output before handing it over.** Run the seven visual-critique dimensions (hierarchy, brand, composition, typography, colour, affordance, information density). Give each dimension a rating of pass, minor issue, or major issue, and for each finding write Observation (neutral), Problem (why it matters), Fix (specific). Then present every fix under P1 critical, P2 important, P3 polish, in the order it should be done, so the list is itself the plan.
-5. **Write the rationale** during the decision, not after: decision, context, options considered, evidence, reasoning, trade-offs, validation plan.
+4. **Close every build with two sections inside the deliverable: the self-critique and the rationale.** A deliverable without them is unfinished, whatever else it contains. Before writing them read `references/source/designer-toolkit/design-rationale.md` and the seven `references/source/visual-critique/critique-*.md` files.
+   - Self-critique: the seven dimensions (hierarchy, brand, composition, typography, colour, affordance, information density), each rated pass, minor issue, or major issue (or "not assessable" with the reason). For each finding: Observation (neutral), Problem (why it matters), Fix (specific). Then every fix under P1 critical, P2 important, P3 polish, in the order it should be done, so the list is itself the plan.
+   - Rationale: decision, context, options considered, evidence, reasoning, trade-offs, validation plan. Write it as you decide, not afterwards.
 
 | Stage | What it covers | Read |
 | --- | --- | --- |
@@ -45,8 +46,7 @@ Read every file in the matching row first. Paths are under `references/source/`.
 | Strategy: brief, principles, competitors, metrics | `ux-strategy/design-brief.md`, `ux-strategy/design-principles.md`, `ux-strategy/competitive-analysis.md`, `ux-strategy/metrics-definition.md`, `ux-strategy/opportunity-framework.md` |
 | Choosing between directions | `prototyping-testing/parallel-concepts.md`, `prototyping-testing/concept-selection.md`, `prototyping-testing/prototype-strategy.md`, `prototyping-testing/wireframe-spec.md` |
 | Handoff, spec, or QA | `design-ops/handoff-spec.md`, `design-ops/design-qa-checklist.md`, `designer-toolkit/design-rationale.md`, `designer-toolkit/ux-writing.md` |
-
-Every build also ends with `designer-toolkit/design-rationale.md` for the rationale and the seven critique files for the self-critique.
+| Closing any build (always) | `designer-toolkit/design-rationale.md` and all seven `visual-critique/critique-*.md` |
 
 ## Routing map
 
@@ -113,6 +113,7 @@ Not covered here: hiring, growth, and org work; running a programme (roadmaps, s
 - Grid: 4 / 8 / 12 columns (mobile / tablet / desktop); gutters 16, 24, or 32px; margins 16px mobile, 24–48px desktop; breakpoints around 375, 640/768, 1024, 1440. Baseline grid 4px or 8px. Test every breakpoint, not just the extremes.
 - One primary CTA per view, filled; everything else ghost or text. If everything is emphasised, nothing is. Decide the single most important element per screen in advance. CTA labels start with a verb and name the outcome ("Save changes", not "OK").
 - Use the weakest container that works: spacing before background, background before border, border before card. At most two levels of nested containers. Remove borders iteratively and check the grouping still reads.
+- Tokens come in three tiers and each tier references the one below it with `var()`: raw scale (`--teal-600: #1F6F5F`), semantic alias (`--color-primary: var(--teal-600)`), component (`--button-bg: var(--color-primary)`). A semantic or component token holding a hex literal is a bug, because themes work by remapping the alias layer; test runs that wrote literals shipped a raw scale nobody used. Always ship a neutral grey scale next to the brand scale; text, borders, and surfaces draw from it.
 - Dark mode is not inversion: background around #121212, elevation through lighter surfaces not shadows, desaturate primaries 10–20%, text off-white (#E0E0E0) not pure white, 4.5:1 still applies, dark variants for illustrations and logos, re-validate figure-ground and closure.
 - Text never sits directly on photography without a separation layer. Modals always get a scrim.
 
