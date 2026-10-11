@@ -1,6 +1,7 @@
 ---
 name: design-playbook
-description: "The designer-skills collection (111 skills, 34 workflows) as one portable playbook for designing and reviewing apps and websites. Use when the user asks you to design, lay out, build, or critique any screen, flow, form, onboarding, navigation, colour or type system, component, or design system, or asks for research plans, usability tests, concept exploration, handoff specs, or design rationale. Read the matching skills in references/ before producing anything."
+description: "The designer-skills collection (111 skills, 34 workflows) as one portable playbook for designing and reviewing apps and websites: research, strategy, UI, interaction, design systems, testing, critique, handoff. Use it whenever the user asks you to design, lay out, build, restyle, or critique anything people will see on a screen (a landing page, dashboard, app screen, signup, checkout, settings, navigation, form, onboarding, empty state, error message, colour palette, type scale, component, or design system), even if they never say the word design, and whenever they ask for personas, interview scripts, usability or A/B tests, concept exploration, handoff specs, or design rationale. Read the matching skills in references/ before producing anything."
+license: MIT
 ---
 # Design Playbook
 

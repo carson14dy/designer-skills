@@ -1,0 +1,59 @@
+{
+  "skill_name": "design-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building a small SaaS for freelance photographers to send client galleries. It's a Next.js app and right now the signup page is just email + password + a Submit button, and after signup you land on an empty dashboard. Design the signup and first-run experience so a new photographer gets to their first shared gallery as fast as possible. I want the screens, the fields and their order, every state (empty, loading, error, success), the copy, and the reasoning, written as a spec my developer can build from. Save it as a markdown file.",
+      "expected_output": "A markdown spec covering signup and onboarding: minimal fields, single-column form rules, validation on blur with specific error copy, an activation path to the first shared gallery, empty states with one clear action, progress and re-engagement, a peak moment, rationale with trade-offs and a validation plan.",
+      "files": [],
+      "expectations": [
+        "Signup form is single-column with persistent top-aligned labels; placeholder text is never the only label",
+        "Validation runs on blur (not every keystroke) and each error message says what went wrong and how to fix it, placed below the field",
+        "Signup collects only what is needed now (email + password or SSO); profile, billing, preferences are deferred until after first value",
+        "Names the activation moment as the first shared gallery and routes the first run directly to it (upload, gallery, share)",
+        "Every screen specifies empty, loading, error, and success states",
+        "The empty dashboard gives one clear primary action and explains what belongs there, instead of an empty grid or table",
+        "Specifies progress indication and a resume/re-engagement hook (autosave, draft, or pick-up-where-you-left-off)",
+        "The first run ends on an accomplishment (gallery shared or link copied), not on an administrative screen",
+        "Includes rationale with explicit trade-offs and a validation plan naming metrics such as activation rate or time to first gallery",
+        "States accessibility requirements: programmatic labels, visible focus, minimum touch target size"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here's our internal ops dashboard as it is today, I need a straight critique. Top bar has the logo centred with Export, Refresh, Settings and New Report as four blue filled buttons on the right. Under that, nine KPI tiles in a 3x3 grid, all the same size, each with a big number coloured green or red depending on whether it went up or down, no other indicator. Below that a table with 14 columns and 11px text in #888888 on white, filters hidden behind a gear icon. The whole page is 13px body text. Our ops team says they 'can't find anything' and new hires keep asking which number matters. Tell me what's wrong and what to fix first, as a prioritised list.",
+      "expected_output": "A prioritised fix list (P1/P2/P3) across hierarchy, affordance, information density, typography, colour: multiple competing primary buttons, no single entry point, colour-only status encoding, contrast failures for #888888 and 11px/13px text below minimums, 14-column table density, hidden filters, logo not top-left. Each item states observation, problem, and a specific fix.",
+      "files": [],
+      "expectations": [
+        "Flags the four equal blue filled buttons as competing primaries and prescribes one filled primary with the rest as ghost or text",
+        "Flags colour-only green/red encoding on KPI tiles and prescribes a redundant indicator (arrow, icon, or label)",
+        "Flags #888888 on white as failing WCAG AA 4.5:1 and gives a ratio (about 3.5:1)",
+        "Flags 11px table text and 13px body text as below minimum and prescribes specific sizes (at least 14px tables, 16px body, or stated equivalents)",
+        "Flags nine equal-size KPI tiles as flattened hierarchy and prescribes a single dominant metric or entry point",
+        "Flags 14 columns as excess density and prescribes fewer default columns with progressive disclosure",
+        "Flags filters hidden behind a gear icon as a discoverability failure and prescribes visible filters",
+        "Flags the centred logo as a convention break (logo top-left means home)",
+        "Output is grouped into priority tiers (P1/P2/P3 or equivalent) with observation, problem, and a specific fix per item",
+        "Names the critique dimensions it assessed (hierarchy, affordance, information density, typography, colour)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our brand colour is #1F6F5F (a teal green) and our UI font is Inter. Build the colour palette and type system for our web app, which is mostly data tables and settings pages, with dark mode. Give me CSS custom properties I can paste into globals.css plus a short doc explaining the semantic roles and the contrast checks you did.",
+      "expected_output": "A CSS file of custom properties with a tonal scale for the teal, a neutral scale, semantic roles (success, warning, error, info) with foreground/background/border variants, dark-mode overrides via prefers-color-scheme that are not a plain inversion (near-#121212 background, off-white text, desaturated primary, lighter-surface elevation), and a type scale on a stated ratio with 16px body, line-heights and weights; plus a doc listing measured contrast ratios against 4.5:1 and 3:1.",
+      "files": [],
+      "expectations": [
+        "CSS defines a tonal scale for the teal primary with at least 9 steps (50 to 900 or equivalent)",
+        "CSS defines a neutral scale and semantic roles (success, warning, error, info) each with background, foreground, and border variants",
+        "Dark mode uses prefers-color-scheme or a data-theme attribute, with a near-#121212 background (not pure black) and off-white text (not pure white)",
+        "Dark-mode primary is desaturated or lightened relative to light mode, and elevation is expressed through lighter surface steps rather than shadows",
+        "Type scale is on a stated ratio with 16px/1rem body, line-height about 1.5 for body and about 1.2 for headings, and 4-5 sizes in regular use",
+        "Doc lists measured contrast ratios for text/background pairs; every body-text pair is at least 4.5:1 and UI component pairs at least 3:1",
+        "Tokens are layered: raw palette tokens, then semantic aliases that reference them, so components never use raw values",
+        "States that colour is not the sole carrier of meaning (status pairs with icon or label) or includes focus-visible / reduced-motion handling",
+        "Provides table-specific tokens (row hover, selected, stripe, border) for the data-table context",
+        "Provides a spacing scale on a 4px or 8px base, or type in rem with a documented base"
+      ]
+    }
+  ]
+}
